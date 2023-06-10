@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+
+<div>
+<form class="form-signin" method="post">
+    <h1 class="h3 mb-3 font-weight-normal"> Register User </h1>
+    {% csrf_token %}
+    <input id="inputEmail" name="email" class="form-control" placeholder="Email" required="" autofocus="" type="email">
+    <input id="Username" name="uname" class="form-control" placeholder="Username" required="" autofocus="" type="text">
+    <input id="inputPassword" name = "password1" class="form-control" placeholder="Password" required="" type="password">
+    {% if messages %}
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    {% endif %}
+    <input id="inputPassword" name = "password2" class="form-control" placeholder="Confirm Password" required="" type="password">
+    <div class="checkbox mb-3">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button><br>
+    <a href="login"> Login </a>
+  </form> 
+  </div>
+{% endblock %}
